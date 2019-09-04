@@ -24,9 +24,9 @@
 			<c:if test="${auth}">
 				<c:if test="${budget == null}">
 					<div class="col mt-5 mb-3">
-						<h2>Create Your Budget</h2>
+						<h2>View Your Travel Junky Goals</h2>
 						<p>Ready to start creating your budget and handling your finances? Click the button below to get started.</p>
-						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget/create" role="button">Create Budget</a>
+						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget/create" role="button">View Goals</a>
 					</div>
 				</c:if>
 				<c:if test="${budget != null}">
