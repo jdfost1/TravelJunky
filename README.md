@@ -1,2 +1,0 @@
-# TravelJunky
-IT 391
