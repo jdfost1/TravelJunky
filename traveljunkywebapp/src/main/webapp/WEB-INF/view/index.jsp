@@ -17,7 +17,7 @@
 <body>
 	<jsp:include page="template/header.jsp" />
 	<div class="hero">
-		<h1 class="hero-heading align-middle">Welcome to Travel Junky!</h1>
+		<h1 class="hero-heading align-middle">Welcome to TravelJunky.com</h1>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -39,9 +39,8 @@
 			</c:if>
 			<c:if test="${!auth}">
 				<div class="col mt-5 mb-3">
-					<h2>Budget Buddy</h2>
-					<p>This is budgeting done right. Tools for breaking down your budget
-						into key areas and giving you advice on how to achieve your goals.</p>
+					<h2>Travel Junky</h2>
+					<p>Sign up to travel the country and receive rewards!</p>
 					<div class="sl">
 						<a class="btn btn-success sl-btn" href="${pageContext.request.contextPath}/account/sign-up" role="button">Sign Up Free</a>
 						<span class="mt-2 mb-2" style="text-align:center;">OR</span>

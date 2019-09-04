@@ -27,15 +27,10 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Financial Quick Tools </a>
+					aria-expanded="false"> Trip Viewer </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="${pageContext.request.contextPath}/tools/quick-budget">Quick
-							Budget</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/tools/401k-calculator">401k Calculator</a> <a
-							class="dropdown-item"
-							href="${pageContext.request.contextPath}/tools/compound-interest-calculator">Compound
-							Interest Calculator</a>
-					</div>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/tools/quick-budget">Rate Trips</a> <a class="dropdown-item"
+							href="${pageContext.request.contextPath}/tools/401k-calculator">View Trips</a> 					</div>
 				</li>
 			</ul>
 			<c:choose>
