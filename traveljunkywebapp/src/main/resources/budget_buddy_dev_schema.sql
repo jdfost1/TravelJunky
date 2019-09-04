@@ -1,7 +1,7 @@
-DROP DATABASE  IF EXISTS `budget_buddy_dev`;
+DROP DATABASE  IF EXISTS `travel_junky_dev`;
 
-CREATE DATABASE  IF NOT EXISTS `budget_buddy_dev`;
-USE `budget_buddy_dev`;
+CREATE DATABASE  IF NOT EXISTS `travel_junky_dev`;
+USE `travel_junky_dev`;
 
 DROP TABLE IF EXISTS `savings_target`;
 CREATE TABLE `savings_target` (
