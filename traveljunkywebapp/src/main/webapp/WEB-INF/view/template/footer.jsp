@@ -12,5 +12,5 @@
 			</ul>
 		</div>
 	</c:if>
-	<b>&copy; 2018 BudgetBuddy.site</b>
+	<b>&copy; 2019 TravelJunky.com</b>
 </footer>

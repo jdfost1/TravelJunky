@@ -58,7 +58,7 @@
 				</c:if>
 				<c:if test="${!auth}">
 					<h2>Not ready to sign up?</h2>
-					<p>Try our financial quick tools! These tools give you quick insight into your finances without needing an account.</p>
+					<p>Take a look at the highest ranked cities, trips, and restaraunts visited by our travel junkies.</p>
 				</c:if>
 			</div>
 		</div>
