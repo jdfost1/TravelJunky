@@ -22,21 +22,14 @@
 	<div class="container">
 		<div class="row">
 			<c:if test="${auth}">
-				<c:if test="${budget == null}">
+				
 					<div class="col mt-5 mb-3">
-						<h2>View Your Travel Junky Goals</h2>
-						<p>Ready to start creating your budget and handling your finances? Click the button below to get started.</p>
-						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget/create" role="button">View Goals</a>
+						<h2>View your progress for the U.S. Travel Junky Challenge 2019</h2>
+						<p>Here you can find out your progress and how you are matching up against others</p>
+						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget/create" role="button">View Progress</a>
 					</div>
 				</c:if>
-				<c:if test="${budget != null}">
-					<div class="col mt-5 mb-3">
-						<h2>My Budget</h2>
-						<p>Jump back in and view your budget. Get a handle on your personal finances.</p>
-						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget" role="button">View Budget</a>
-					</div>
-				</c:if>
-			</c:if>
+			
 			<c:if test="${!auth}">
 				<div class="col mt-5 mb-3">
 					<h2>Travel Junky</h2>
@@ -53,18 +46,22 @@
 		<div class="row">
 			<div class="col mt-3">
 				<c:if test="${auth}">
-					<h2>Financial Quick Tools</h2>
-					<p>Try out our financial quick tools to gain fast insight into your finances.</p>
+					<h2>Welcome back Travel Junky!</h2>
+					<p>Thank you for being a Travel Junky! Lets travel the world and give back to the small business community</p>
+							<div class="row">
+			<div class="col-10 col-sm-12 col-md-10 offset-1 offset-sm-0 offset-md-1 mb-4">
+				<jsp:include page="template/quick-tools-cards.jsp"/>
+			</div>
+		</div>
 				</c:if>
-				<c:if test="${!auth}">
-					<h2>Not ready to sign up?</h2>
-					<p>Take a look at the highest ranked cities, trips, and restaraunts visited by our travel junkies.</p>
-				</c:if>
+		
+				
+				
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-10 col-sm-12 col-md-10 offset-1 offset-sm-0 offset-md-1 mb-4">
-				<jsp:include page="template/quick-tools-cards.jsp"/>
+				<jsp:include page="template/quick-tools-cards1.jsp"/>
 			</div>
 		</div>
 	</div>
