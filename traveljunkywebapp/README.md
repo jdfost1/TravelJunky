@@ -32,7 +32,7 @@
 3. **Expand the Maven folder** and **select Existing Maven Projects**
    - **Click Next**
 4. **Browse to and select the root folder** where you cloned this project to
-   - Example: C:\dev\BudgetBuddy
+   - Example: C:\dev\TravelJunky
 5. **Click Finish** and wait for Maven to build the workspace.
 6. **Open** the *persistence-mysql.properties* file located at *src/main/resources*
    - Modify the property *jdbc.user* and change it to the username for your MySQL Server instance.
