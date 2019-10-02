@@ -56,6 +56,21 @@ public class AccountController {
 		
 		return "view-account";
 	}
+	@GetMapping("/challenge-list")
+	public String showChallengePage(Model model) {
+		// Get email of current user
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		// Retrieve user object from the database
+		User user = userService.findByEmail(email);
+		
+		// Add user object to the model
+		model.addAttribute("user", user);
+		
+		//add challenge list object to the model
+		
+		return "challenge-list";
+	}
 
 	@RequestMapping("/login")
 	public String showLoginPage() {

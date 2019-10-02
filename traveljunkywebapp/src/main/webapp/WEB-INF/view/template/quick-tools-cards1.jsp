@@ -2,7 +2,7 @@
 	<div class="card quick-tool">
 		<img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/img/quick-budget-icon.png" alt="Quick Budget icon">
 		<div class="card-body">
-			<h5 class="card-title"><a href="${pageContext.request.contextPath}/tools/quick-budget">View U.S. Travel Junky Challenge List</a></h5>
+			<h5 class="card-title"><a href="${pageContext.request.contextPath}/challenge-list">View U.S. Travel Junky Challenge List</a></h5>
 			<p class="card-text">Here you can view the complete challenge list for the Travel Junky 2019 Challenge.</p>
 		</div>
 	</div>

@@ -9,21 +9,39 @@ USE `travel_junky_dev`;
 --
 DROP TABLE IF EXISTS `challenge_list`;
 CREATE TABLE `challenge_list` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `challenge_number` int(10) NOT NULL,
   `challenge_name` varchar(300) NOT NULL,
   `business_name` varchar(300) NOT NULL,
   `city` varchar(300) NOT NULL,
   `state` varchar(300) NOT NULL,
   `address` varchar(300) NOT NULL,
-  `reward_points` decimal(10,2) NOT NULL,
-  `challenge_number` int(10) NOT NULL,
-  'completed' BOOLEAN,
+  `reward_points` int(10) NOT NULL
+ 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-  PRIMARY KEY (`id`)
+--
+-- Table structure for table `challenge_completion_list`
+--
+DROP TABLE IF EXISTS `challenge__completion_list`;
+CREATE TABLE `challenge_completion_list` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `challenge_number` int(10) NOT NULL,
+   `completion` boolean DEFAULT false,
+  `reward_points`  int(10)NOT NULL,
+  
+   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-
+--
+-- Table structure for table `rewards`
+--
+DROP TABLE IF EXISTS `rewards_balance`;
+CREATE TABLE `rewards_balance`(
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `balance` int(10) NOT NULL,
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Table structure for table `user`
 --
@@ -35,10 +53,14 @@ CREATE TABLE `user` (
   `enabled` tinyint(1) NOT NULL,
   `name` varchar(50) NOT NULL,
   `age` tinyint NOT NULL,
-  `challenge_id` int(11),
+  `challenge_completion_list_id` int(11),
+  `rewards_balance_id` int(11),
+  
+  
 
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`chalenge_id`) REFERENCES `challenge_list` (`id`),
+  FOREIGN KEY (`challenge_completion_list_id`) REFERENCES `challenge_completion_list` (`id`),
+  FOREIGN KEY (`rewards_balance_id`) REFERENCES `rewards_balance` (`id`)
   
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
