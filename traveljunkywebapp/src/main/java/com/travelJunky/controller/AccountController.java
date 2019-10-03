@@ -31,10 +31,10 @@ public class AccountController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private EmailService emailService;
 
@@ -48,16 +48,15 @@ public class AccountController {
 	public String showAccountPage(Model model) {
 		// Get email of current user
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+
 		// Retrieve user object
 		User user = userService.findByEmail(email);
-		
+
 		// Add user object to the model
 		model.addAttribute("user", user);
-		
+
 		return "view-account";
 	}
-
 
 	@RequestMapping("/login")
 	public String showLoginPage() {
@@ -113,7 +112,6 @@ public class AccountController {
 		return "update-account";
 	}
 
-
 	@PostMapping("/update")
 	public String processUpdateAccount(@Valid @ModelAttribute("userUpdate") UserUpdate update,
 			BindingResult bindingResult, Model model) {
@@ -151,34 +149,34 @@ public class AccountController {
 		// Bring the user to the account page
 		return "redirect:/account?updated";
 	}
-	
-	@GetMapping("/change-password") 
+
+	@GetMapping("/change-password")
 	public String showChangePasswordPage(Model model) {
 		model.addAttribute("userPasswordUpdate", new UserPasswordUpdate());
 		return "change-password";
 	}
-	
+
 	@PostMapping("/change-password")
 	public String processChangePassword(@Valid @ModelAttribute("userPasswordUpdate") UserPasswordUpdate passwordUpdate,
 			BindingResult bindingResult, Model model) {
 		// If the form was not filled out properly return the form
 		if (bindingResult.hasErrors())
 			return "change-password";
-		
+
 		// Retrieve the current user
 		User user = userService.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
-		
-		// Check that the current password supplied matches the user's actual current password
-		if (!passwordEncoder.matches(passwordUpdate.getCurrentPassword(), user.getPassword())) 
-		{
+
+		// Check that the current password supplied matches the user's actual current
+		// password
+		if (!passwordEncoder.matches(passwordUpdate.getCurrentPassword(), user.getPassword())) {
 			model.addAttribute("incorrectCurrentPassword", true);
 			return "change-password";
 		}
-		
+
 		// Change the user's password
 		user.setPassword(passwordEncoder.encode(passwordUpdate.getNewPassword()));
 		userService.save(user);
-		
+
 		return "redirect:/account?passwordChanged";
 	}
 
@@ -213,10 +211,10 @@ public class AccountController {
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?accountDeleted";
 	}
-	
+
 	@GetMapping("/reset-password")
 	public String showResetPasswordPage(Model model) {
-		model.addAttribute("userDelete", new UserDelete());		
+		model.addAttribute("userDelete", new UserDelete());
 		return "reset-password";
 	}
 
@@ -237,34 +235,25 @@ public class AccountController {
 			model.addAttribute("userNotExist", true);
 			return "reset-password";
 		}
-		
+
 		// Generate a temporary password and hash it
 		String pwd = emailService.generateTemporaryPassword();
 		String hashedPwd = passwordEncoder.encode(pwd);
-		
+
 		// Reset the person's password with the given email
 		user.setPassword(hashedPwd);
 		userService.save(user);
-		
+
 		// Send them an email with the new password
-		String subject = "Your Budget Buddy password has been reset";
-		String text = "Hello " + user.getName() + ",\n\n"
-				+ "Your password for Budget Buddy has been reset.\n"
+		String subject = "Your Travel Junky password has been reset";
+		String text = "Hello " + user.getName() + ",\n\n" + "Your password for Budget Buddy has been reset.\n"
 				+ "New Temporary Password: " + pwd + "\n"
 				+ "After logging in with the password above, be sure to manually set a new password.\n\n"
-				+ "Budget Buddy";
+				+ "Travel Junky";
 		emailService.sendSimpleMessage(email, subject, text);
 
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?passwordReset";
 	}
-//	@GetMapping("/challenge-list")
-//	public String showChallengeList(Model model) {
-//
-//				//add challenge list to the model so that we can display all the challenges on the jsp page
-//		        
-//				model.addAttribute("challenges", new ChallengeList());
-//
-//		return "challenge-list";
-//	}
+
 }
