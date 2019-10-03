@@ -122,20 +122,20 @@ public class AppConfig implements WebMvcConfigurer {
 		return mailSender;
 	}
 	
-	@Bean
-	public HandlerExceptionResolver handlerExceptionResolver() {
-		HandlerExceptionResolver resolver = new HandlerExceptionResolver() {
-			
-			@Override
-			public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
-					Exception ex) {
-				ModelAndView mav = new ModelAndView("not-found");
-				mav.addObject("error", ex);
-				return mav;
-			}
-		};
-		return resolver;
-	}
+//	@Bean
+//	public HandlerExceptionResolver handlerExceptionResolver() {
+//		HandlerExceptionResolver resolver = new HandlerExceptionResolver() {
+//			
+//			@Override
+//			public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
+//					Exception ex) {
+//				ModelAndView mav = new ModelAndView("not-found");
+//				mav.addObject("error", ex);
+//				return mav;
+//			}
+//		};
+//		return resolver;
+//	}
 	
 	private final Properties hibernateProperties() {
 		Properties hibernateProperties = new Properties();

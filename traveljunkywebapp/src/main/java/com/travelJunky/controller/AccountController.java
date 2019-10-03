@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.travelJunky.entities.User;
+import com.travelJunky.model.ChallengeList;
 import com.travelJunky.model.UserDelete;
 import com.travelJunky.model.UserPasswordUpdate;
 import com.travelJunky.model.UserRegistration;
@@ -56,21 +57,7 @@ public class AccountController {
 		
 		return "view-account";
 	}
-	@GetMapping("/challenge-list")
-	public String showChallengePage(Model model) {
-		// Get email of current user
-		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		
-		// Retrieve user object from the database
-		User user = userService.findByEmail(email);
-		
-		// Add user object to the model
-		model.addAttribute("user", user);
-		
-		//add challenge list object to the model
-		
-		return "challenge-list";
-	}
+
 
 	@RequestMapping("/login")
 	public String showLoginPage() {
@@ -125,6 +112,7 @@ public class AccountController {
 
 		return "update-account";
 	}
+
 
 	@PostMapping("/update")
 	public String processUpdateAccount(@Valid @ModelAttribute("userUpdate") UserUpdate update,
@@ -270,4 +258,13 @@ public class AccountController {
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?passwordReset";
 	}
+//	@GetMapping("/challenge-list")
+//	public String showChallengeList(Model model) {
+//
+//				//add challenge list to the model so that we can display all the challenges on the jsp page
+//		        
+//				model.addAttribute("challenges", new ChallengeList());
+//
+//		return "challenge-list";
+//	}
 }
