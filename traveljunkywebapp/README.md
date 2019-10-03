@@ -1,4 +1,4 @@
-# Budget Buddy 
+# Travel Junky
 
 ## Installation and Setup
 ### Required Software
