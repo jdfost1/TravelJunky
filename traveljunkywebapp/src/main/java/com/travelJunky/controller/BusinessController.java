@@ -2,7 +2,10 @@ package com.travelJunky.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.travelJunky.model.BusinessForm;
@@ -21,6 +24,16 @@ public class BusinessController {
 		
 		
 		
+	}
+	@PostMapping String submitForm(@ModelAttribute("businessForm") BusinessForm businessForm, BindingResult bindingResult, Model model) {
+		
+		//save business referral to database
+		
+		//send email to travel junky office/administrator
+		
+		//send email to business contact
+		
+		return "confirmation-page";
 	}
 
 }
