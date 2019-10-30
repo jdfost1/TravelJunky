@@ -35,7 +35,7 @@ public class ChallengeList {
 		this.challenges[1].setChallengeName("Get that Bread");
 		this.challenges[2].setChallengeName("Grab a Brew");
 		this.challenges[3].setChallengeName("BBQ Challenge");
-		this.challenges[4].setChallengeName("Eat a weiner");
+		this.challenges[4].setChallengeName("hot dog challenge");
 		
 		
 		//get challenges from database and fill up array of challenges

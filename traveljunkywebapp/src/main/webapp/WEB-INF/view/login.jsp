@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Login - Budget Buddy</title>
+	<title>Login - Travel Junky</title>
 	<jsp:include page="template/css-include.jsp"/>
 	<jsp:include page="template/favicon.jsp"/>
 	<style>
